@@ -1,0 +1,51 @@
+<p-dropdown [options]="paymentTypes" [(ngModel)]="selectedPaymentType" optionLabel="name" placeholder="Create New Payment" (onChange)="onSelectPaymentType($event.value)"></p-dropdown>
+
+<p-dialog header="Add Payment Details" [modal]="true" [(visible)]="visible" [style]="{ width: '40rem' }">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="flex align-items-center gap-3 mb-5">
+            <label for="M_ID" class="font-semibold w-6rem">M_ID</label>
+            <input pInputText id="M_ID" class="flex-auto" formControlName="M_ID" autocomplete="off" />
+        </div>
+        <div class="flex align-items-center gap-3 mb-4">
+            <label for="API_KEY" class="font-semibold w-6rem">API_KEY</label>
+            <input pInputText id="API_KEY" class="flex-auto" formControlName="API_KEY" autocomplete="off" />
+        </div>
+        <div class="flex align-items-center gap-3 mb-3">
+            <label for="PaymentTypes" class="font-semibold w-6rem">Payment Types</label>
+            <input pInputText id="PaymentTypes" class="flex-auto" formControlName="PaymentTypes" autocomplete="off" readonly />
+        </div>        
+        <div class="p-dialog-footer">
+            <button type="button" pButton label="Cancel" (click)="visible = false"></button>
+            <button type="submit" pButton label="Submit" [disabled]="!form.valid"></button>
+        </div>
+    </form>
+</p-dialog>
+
+
+
+<div *ngIf="payments.length > 0">
+    <h2>Payments List</h2>
+    <p-table [value]="payments" [tableStyle]="{ 'min-width': '30rem' }">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Vendor Id</th>
+                <th>Webhook Callback</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-payment>
+            <tr>
+                <td>{{ payment.id }}</td>
+                <td>{{ payment.name }}</td>
+                <td>{{ payment.Vendor_Id }}</td>
+                <td>{{ payment.PaymentTypes.webhook_callback }}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+
+<div *ngIf="payments.length === 0">
+    <p>No payments available.</p>
+</div>
+

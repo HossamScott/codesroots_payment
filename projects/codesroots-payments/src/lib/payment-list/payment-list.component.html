@@ -2,24 +2,26 @@
 
 <p-dialog header="Add Payment Details" [modal]="true" [(visible)]="visible" [style]="{ width: '40rem' }">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
-        <div class="flex align-items-center gap-3 mb-5">
+        <div class="form-group">
             <label for="M_ID" class="font-semibold w-6rem">M_ID</label>
-            <input pInputText id="M_ID" class="flex-auto" formControlName="M_ID" autocomplete="off" />
+            <input pInputText id="M_ID" class="form-control" formControlName="M_ID" autocomplete="off" />
         </div>
-        <div class="flex align-items-center gap-3 mb-4">
+        <div class="form-group">
             <label for="API_KEY" class="font-semibold w-6rem">API_KEY</label>
-            <input pInputText id="API_KEY" class="flex-auto" formControlName="API_KEY" autocomplete="off" />
+            <input pInputText id="API_KEY" class="form-control" formControlName="API_KEY" autocomplete="off" />
         </div>
-        <div class="flex align-items-center gap-3 mb-3">
+        <div class="form-group">
             <label for="PaymentTypes" class="font-semibold w-6rem">Payment Types</label>
-            <input pInputText id="PaymentTypes" class="flex-auto" formControlName="PaymentTypes" autocomplete="off" readonly />
+            <input pInputText id="PaymentTypes" class="form-control" formControlName="PaymentTypes" autocomplete="off" readonly />
         </div>        
         <div class="p-dialog-footer">
             <button type="button" pButton label="Cancel" (click)="visible = false"></button>
             <button type="submit" pButton label="Submit" [disabled]="!form.valid"></button>
         </div>
     </form>
+    
 </p-dialog>
+
 
 
 

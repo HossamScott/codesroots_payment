@@ -21,7 +21,12 @@ import { InputTextModule } from 'primeng/inputtext';
     HttpClientModule,
     CommonModule,
     DropdownModule,
-    FormsModule,TableModule,DialogModule,InputTextModule,ReactiveFormsModule,ButtonModule
+    FormsModule,
+    TableModule,
+    DialogModule,
+    InputTextModule,
+    ReactiveFormsModule,
+    ButtonModule
 
   ],
   providers: [

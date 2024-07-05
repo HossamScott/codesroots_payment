@@ -5,6 +5,7 @@ import { Payment } from './payment.model';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 // import { PaymentDetailsDialogComponent } from './payment-details-dialog/payment-details-dialog.component';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { InputTextModule } from 'primeng/inputtext';
 
 
 @Component({
